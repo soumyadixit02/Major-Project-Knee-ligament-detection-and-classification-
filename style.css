@@ -1,0 +1,115 @@
+/* ============================================================
+   Knee AI - Bulletproof Card Layout CSS
+   ============================================================ */
+
+/* 1. Force Main Background to Light Gray */
+.stApp, .main, [data-testid="stAppViewContainer"] {
+    background-color: #F4F7FB !important;
+}
+
+#MainMenu, footer, header { visibility: hidden; }
+.block-container { padding-top: 1.2rem; padding-bottom: 1.5rem; max-width: 1500px; }
+
+/* 2. Turn ONLY Top-Level Columns into Cards */
+[data-testid="stHorizontalBlock"] > [data-testid="column"] {
+    background-color: #FFFFFF !important;
+    border-radius: 12px !important;
+    padding: 24px !important;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.06) !important;
+    border: 1px solid #E2E8F0 !important;
+}
+
+/* 3. Prevent Nested Columns (like pipeline images) from becoming cards */
+[data-testid="column"] [data-testid="stHorizontalBlock"] > [data-testid="column"] {
+    background-color: transparent !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* 4. Protect the Sidebar from Card Styling */
+section[data-testid="stSidebar"] {
+    background-color: #0D1B2A !important;
+}
+section[data-testid="stSidebar"] [data-testid="column"] {
+    background-color: transparent !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+section[data-testid="stSidebar"] * {
+    color: #E0E6ED;
+}
+
+/* 5. Force File Uploader to look like the reference */
+[data-testid="stFileUploadDropzone"] {
+    background-color: #FFFFFF !important;
+    border: 2px dashed #CBD5E1 !important;
+    border-radius: 12px !important;
+}
+[data-testid="stFileUploadDropzone"] * {
+    color: #4A5568 !important;
+}
+
+/* 6. Typography & Internal Component Styling */
+.card-title { font-size: 16px; font-weight: 700; color: #1E293B; margin-bottom: 16px; margin-top: 0; }
+.sidebar-brand { display: flex; align-items: center; gap: 10px; padding: 6px 0 20px 0; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 14px; }
+.sidebar-brand-icon { font-size: 24px; background: #16324F; border-radius: 12px; padding: 8px 11px; }
+.sidebar-brand-title { font-size: 19px; font-weight: 700; color: #FFFFFF !important; line-height: 1.1; }
+.sidebar-brand-subtitle { font-size: 11.5px; color: #7C93AC !important; }
+.sidebar-section-title { margin-top: 22px; margin-bottom: 8px; font-size: 11px; letter-spacing: 0.07em; color: #6C87A3 !important; font-weight: 700; }
+.sidebar-info-row { display: flex; justify-content: space-between; font-size: 12.5px; color: #C9D6E3 !important; padding: 6px 2px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.sidebar-info-row span:last-child { font-weight: 600; color: #FFFFFF !important; }
+
+.header-block { display: flex; align-items: center; gap: 16px; padding: 4px 0; }
+.header-icon { font-size: 32px; background: linear-gradient(135deg, #E8F1FC, #DCEBFB); border-radius: 16px; padding: 14px 18px; box-shadow: inset 0 0 0 1px rgba(29,53,87,0.05); }
+.header-title { font-size: 23px; font-weight: 800; color: #1D3557; line-height: 1.28; letter-spacing: -0.01em; }
+.header-subtitle { font-size: 13px; color: #6C87A3; margin-top: 6px; }
+
+.project-by-card { display: flex; align-items: center; justify-content: flex-end; gap: 12px; height: 100%; }
+.project-by-icon { font-size: 22px; background: #EAF2FB; color: #1D3557; border-radius: 50%; padding: 10px 13px; }
+.project-by-label { font-size: 10.5px; color: #8FA3B8; letter-spacing: 0.03em; }
+.project-by-name { font-size: 14.5px; font-weight: 700; color: #1D3557; }
+.project-by-sub { font-size: 11px; color: #8FA3B8; }
+
+.section-divider { height: 18px; }
+
+.placeholder-box, .upload-placeholder, .pipeline-placeholder-box { background: #F4F8FC; border: 1.5px dashed #C7D3DE; border-radius: 12px; padding: 20px; text-align: center; color: #8FA3B8; font-size: 13px; }
+
+.upload-instructions { font-size: 13px; color: #6C87A3; margin-bottom: 12px; text-align: center; }
+.upload-success { margin-top: 10px; background: #E7F7EE; color: #1B7F4C; border-radius: 9px; padding: 9px 12px; font-size: 12.5px; font-weight: 600; text-align: center; white-space: nowrap; }
+.pipeline-step-title { font-size: 12px; font-weight: 700; color: #457B9D; margin-bottom: 8px; text-align: center; }
+
+.prediction-result-box { background: linear-gradient(135deg, #F0FAF4, #E9F8EF); border-radius: 14px; padding: 18px; box-shadow: inset 0 0 0 1px rgba(42,157,143,0.08); }
+.prediction-row { display: flex; align-items: center; gap: 16px; }
+.prediction-icon { font-size: 28px; background: #FFFFFF; border-radius: 50%; padding: 12px 14px; box-shadow: 0 2px 6px rgba(29,53,87,0.10); }
+.prediction-label { font-size: 10.5px; color: #6C87A3; font-weight: 700; letter-spacing: 0.05em; }
+.prediction-value { font-size: 21px; font-weight: 800; color: #1D3557; margin-top: 2px; }
+.prediction-confidence { margin-left: auto; text-align: right; }
+.prediction-confidence-value { font-size: 21px; font-weight: 800; color: #1B7F4C; margin-top: 2px; }
+.severity-row { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(29,53,87,0.06); }
+.severity-badge { color: #FFFFFF; font-weight: 700; font-size: 12px; padding: 5px 16px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.12); }
+.confidence-progress-label { font-size: 12px; color: #6C87A3; margin: 12px 0 4px 0; font-weight: 600; }
+
+.prob-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.prob-label { width: 72px; font-size: 12.5px; color: #1D3557; font-weight: 600; }
+.prob-bar-track { flex: 1; background: #EEF2F6; border-radius: 6px; height: 11px; overflow: hidden; }
+.prob-bar-fill { height: 100%; border-radius: 6px; transition: width 0.4s ease; }
+.prob-value { width: 58px; font-size: 12px; color: #6C87A3; text-align: right; font-weight: 600; }
+
+.gradcam-legend { display: flex; align-items: center; gap: 10px; font-size: 11px; color: #6C87A3; margin-top: 10px; font-weight: 600; }
+.gradcam-gradient-bar { flex: 1; height: 8px; border-radius: 4px; background: linear-gradient(to right, #2E86DE, #2A9D8F, #F4A261, #E63946); }
+
+.metric-card { background: #FBFDFF; border-radius: 12px; padding: 14px 10px; text-align: center; box-shadow: 0 2px 8px rgba(29,53,87,0.06); border: 1px solid rgba(29,53,87,0.05); margin-bottom: 12px; }
+.metric-icon { font-size: 19px; }
+.metric-label { font-size: 10.5px; color: #6C87A3; font-weight: 700; margin: 6px 0; letter-spacing: 0.03em; }
+.metric-value { font-size: 19px; font-weight: 800; }
+
+.summary-point { font-size: 12.5px; color: #1D3557; padding: 7px 0; border-bottom: 1px solid rgba(29,53,87,0.05); }
+.summary-point:last-child { border-bottom: none; }
+.summary-check { color: #FFFFFF; background: #2A9D8F; font-weight: 800; margin-right: 10px; font-size: 10px; border-radius: 50%; padding: 2px 6px; }
+
+.footer-block { background: #0D1B2A; color: #E0E6ED; border-radius: 14px; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; font-size: 13px; box-shadow: 0 4px 16px rgba(13,27,42,0.25); }
+.footer-sub { font-size: 11px; color: #8FA3B8; }
+div[data-testid="stProgress"] > div > div { border-radius: 10px; background-color: #2A9D8F !important; }
+img { border-radius: 10px; }
